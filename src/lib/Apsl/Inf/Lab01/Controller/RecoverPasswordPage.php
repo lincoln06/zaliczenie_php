@@ -12,7 +12,7 @@ class RecoverPasswordPage extends BasePage
     protected function doHandle(): void
     {
         if ($this->request->isMethod(Request::METHOD_POST)) {
-            $data = $this->request->getValue('recover_password');
+            $data = $this->request->getValue('contact');
             $email = trim($data['email'] ?? '');
 
             $errors = [];
