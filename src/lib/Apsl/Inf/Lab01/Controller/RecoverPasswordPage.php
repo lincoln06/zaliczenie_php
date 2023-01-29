@@ -23,9 +23,8 @@ class RecoverPasswordPage extends BasePage
             }
 
             if (empty($errors)) {
-                // TODO: send email
+                $this->response->redirect('/check_email');
 
-                $this->response->redirect('generate_hash') ;
                 return;
             }
         }
@@ -35,5 +34,6 @@ class RecoverPasswordPage extends BasePage
             'errors' => $errors ?? [],
             'success' => $this->request->getValue('success', false)
         ]));
+
     }
 }

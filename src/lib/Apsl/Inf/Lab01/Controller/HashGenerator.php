@@ -18,6 +18,6 @@ public function generateHash() : string {
         $session->setValue('reset_hash', $hash);
 
         $this->response->redirect(
-            '/...'
+            '/check_email'
         );
 }}
