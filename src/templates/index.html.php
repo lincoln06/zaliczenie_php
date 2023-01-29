@@ -7,8 +7,6 @@
     <title><?php echo $title ?></title>
 </head>
 <body>
-<header>
-    <h1>Hello <?php echo $name ?>!</h1>
-</header>
+<a href="/recover_password">Odzyskiwanie hasła</a>
 </body>
 </html>

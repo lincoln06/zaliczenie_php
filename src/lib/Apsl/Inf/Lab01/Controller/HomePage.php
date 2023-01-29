@@ -10,8 +10,7 @@ class HomePage extends BasePage
     protected function doHandle(): void
     {
         $this->response->setBody($this->useTemplate('templates/index.html.php', [
-            'title' => 'Welcome Page',
-            'name' => $this->request->getQueryStringValue(name: 'name', default: 'Anonymous')
+            'title' => 'Welcome Page'
         ]));
     }
 }

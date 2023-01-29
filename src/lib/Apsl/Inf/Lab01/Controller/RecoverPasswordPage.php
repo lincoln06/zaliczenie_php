@@ -31,7 +31,7 @@ class RecoverPasswordPage extends BasePage
         }
 
         $this->response->setBody($this->useTemplate('templates/recover_password.html.php', [
-            'title' => 'Contact Page',
+            'title' => 'Odzyskiwanie hasła',
             'errors' => $errors ?? [],
             'success' => $this->request->getValue('success', false)
         ]));
