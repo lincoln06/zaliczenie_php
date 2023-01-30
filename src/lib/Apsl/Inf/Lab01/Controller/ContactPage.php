@@ -26,8 +26,6 @@ class ContactPage extends BasePage
             }
 
             if (empty($errors)) {
-                // TODO: send email
-
                 $this->response->redirect($this->request->getCurrentUri(withQueryString: false) . '?success=true');
                 return;
             }

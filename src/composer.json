@@ -3,5 +3,8 @@
     "psr-4": {
       "": "./lib"
     }
+  },
+  "require": {
+    "symfony/mailer": "^6.2"
   }
 }

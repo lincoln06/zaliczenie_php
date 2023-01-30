@@ -4,10 +4,37 @@ namespace Apsl\Inf\Lab01\Controller;
 
 use Apsl\Controller\BasePage;
 use Apsl\Http\Request;
+use Apsl\Inf\Lab01\Controller\HashGenerator;
+use Symfony\Component\Mailer\Transport;
+use Symfony\Component\Mailer\Mailer;
+use Symfony\Component\Mime\Email;
 
 class RecoverPasswordPage extends BasePage
 {
  protected string $email;
+ protected function sendEmailResetLink(string $emailAddress): void
+
+ {
+     $hashGenerator=new HashGenerator();
+     $hash=$hashGenerator->generateHash();
+     if($this->request->getCookieValue('session')!=null) {
+         $sessionId=$this->request->getCookieValue('session');
+         session_id($sessionId);
+     }
+     session_start();
+     $_SESSION['hash']=$hash;
+     var_dump($_SESSION);
+     $transport = Transport::fromDsn('smtp://apsl-dev@gmx.com:apslDEV2023@mail.gmx.com:587');
+     $mailer = new Mailer($transport);
+     $emailMessage = (new Email())
+         ->from('apsl-dev@gmx.com')
+         ->to(" {$emailAddress}")
+         ->subject('Link do resetowania hasła')
+         ->text("Link do resetowania hasła: localhost/new-password?hash={$hash}");
+
+     $mailer->send($emailMessage);
+ }
+
 
     protected function doHandle(): void
     {
@@ -23,6 +50,7 @@ class RecoverPasswordPage extends BasePage
             }
 
             if (empty($errors)) {
+                $this->sendEmailResetLink($email);
                 $this->response->redirect('/check_email');
 
                 return;

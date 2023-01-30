@@ -6,6 +6,7 @@ use Apsl\Inf\Lab01\Controller\ContactPage;
 use Apsl\Inf\Lab01\Controller\HashGenerator;
 use Apsl\Inf\Lab01\Controller\HomePage;
 use Apsl\Inf\Lab01\Controller\RecoverPasswordPage;
+use \Apsl\Inf\Lab01\Controller\NewPassword;
 
 
 return [
@@ -14,5 +15,6 @@ return [
     '_404' => Error404Page::class,
     '/recover_password' => RecoverPasswordPage::class,
     '/generate_hash'=>HashGenerator::class,
-    '/check_email'=>CheckEmailPage::class
+    '/check_email'=>CheckEmailPage::class,
+    '/new-password'=>NewPassword::class
 ];
