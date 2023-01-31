@@ -17,13 +17,9 @@ class RecoverPasswordPage extends BasePage
  {
      $hashGenerator=new HashGenerator();
      $hash=$hashGenerator->generateHash();
-     if($this->request->getCookieValue('session')!=null) {
-         $sessionId=$this->request->getCookieValue('session');
-         session_id($sessionId);
-     }
+
      session_start();
      $_SESSION['hash']=$hash;
-     var_dump($_SESSION);
      $transport = Transport::fromDsn('smtp://apsl-dev@gmx.com:apslDEV2023@mail.gmx.com:587');
      $mailer = new Mailer($transport);
      $emailMessage = (new Email())

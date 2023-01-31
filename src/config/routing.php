@@ -7,6 +7,7 @@ use Apsl\Inf\Lab01\Controller\HashGenerator;
 use Apsl\Inf\Lab01\Controller\HomePage;
 use Apsl\Inf\Lab01\Controller\RecoverPasswordPage;
 use \Apsl\Inf\Lab01\Controller\NewPassword;
+use Apsl\Inf\Lab01\Controller\ViewPage;
 
 
 return [
@@ -16,5 +17,6 @@ return [
     '/recover_password' => RecoverPasswordPage::class,
     '/generate_hash'=>HashGenerator::class,
     '/check_email'=>CheckEmailPage::class,
-    '/new-password'=>NewPassword::class
+    '/new-password'=>NewPassword::class,
+    '/viewpage'=>ViewPage::class
 ];
