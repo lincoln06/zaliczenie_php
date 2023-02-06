@@ -40,8 +40,8 @@ class NewPassword extends BasePage
         $this->response->setBody($this->useTemplate('templates/newpassword.html.php', [
             'title' => 'Ustaw nowe hasło',
             'errors' => $errors ?? [],
-            'data' => $data ?? [],
-            'success' => $this->request->getValue('success', false)]));
+            'data' => $data ?? []
+            ]));
     }
 
     }
